@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生命日记 - 体验生死的开放世界</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 游戏主界面 -->
+    <div class="game-container" id="mainMenu">
+        <div class="game-header">
+            <h1>生命日记</h1>
+            <p class="subtitle">体验生死的开放世界游戏</p>
+        </div>
+        
+        <div class="island-selection">
+            <div class="island-card" data-island="living">
+                <div class="island-icon">🏝️</div>
+                <h3>生灵岛</h3>
+                <p>体验从生到死的真实世界</p>
+                <div class="island-status" id="livingStatus">未开始</div>
+            </div>
+            
+            <div class="island-card" data-island="ghost">
+                <div class="island-icon">👻</div>
+                <h3>幽灵岛</h3>
+                <p>死亡后的幽灵世界</p>
+                <div class="island-status" id="ghostStatus">未解锁</div>
+            </div>
+            
+            <div class="island-card" data-island="creature">
+                <div class="island-icon">🐾</div>
+                <h3>怪趣岛</h3>
+                <p>投胎成为奇怪小生物的奇趣世界</p>
+                <div class="island-status" id="creatureStatus">未解锁</div>
+            </div>
+        </div>
+        
+        <div class="game-controls">
+            <button class="btn btn-primary" id="startGameBtn">开始生命之旅</button>
+            <button class="btn btn-secondary" id="loadGameBtn">继续游戏</button>
+        </div>
+    </div>
+
+    <!-- 前置问答界面 -->
+    <div class="questionnaire-container" id="questionnaire" style="display: none;">
+        <div class="questionnaire-header">
+            <h2>生命档案建立</h2>
+            <p>请诚实地回答以下问题，这将影响你的生命体验</p>
+        </div>
+        
+        <div class="questionnaire-content">
+            <div class="question-section" id="basicInfo">
+                <h3>基础信息</h3>
+                <div class="form-group">
+                    <label>年龄：</label>
+                    <input type="number" id="age" min="1" max="120" placeholder="请输入你的年龄">
+                </div>
+                <div class="form-group">
+                    <label>性别：</label>
+                    <select id="gender">
+                        <option value="">请选择</option>
+                        <option value="male">男</option>
+                        <option value="female">女</option>
+                        <option value="other">其他</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>职业：</label>
+                    <input type="text" id="profession" placeholder="请输入你的职业">
+                </div>
+            </div>
+            
+            <div class="question-section" id="lifePhilosophy">
+                <h3>生死观</h3>
+                <div class="form-group">
+                    <label>你认为生命的意义是什么？</label>
+                    <textarea id="lifeMeaning" placeholder="请分享你对生命意义的理解..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>你对死亡的态度是：</label>
+                    <select id="deathAttitude">
+                        <option value="">请选择</option>
+                        <option value="fear">恐惧</option>
+                        <option value="accept">接受</option>
+                        <option value="curious">好奇</option>
+                        <option value="peaceful">平静</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="question-section" id="deathPrediction">
+                <h3>死亡预测</h3>
+                <div class="form-group">
+                    <label>你预测自己的死因是：</label>
+                    <select id="deathCause">
+                        <option value="">请选择</option>
+                        <option value="natural">自然衰老</option>
+                        <option value="disease">疾病</option>
+                        <option value="accident">意外</option>
+                        <option value="suicide">自杀</option>
+                        <option value="other">其他</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>你预测自己的死期（剩余天数）：</label>
+                    <input type="number" id="deathDays" min="7" max="600" placeholder="7-600天">
+                </div>
+            </div>
+            
+            <div class="question-section" id="reincarnationWish">
+                <h3>投胎许愿</h3>
+                <div class="form-group">
+                    <label>下辈子你想成为什么？</label>
+                    <textarea id="reincarnationWish" placeholder="写下你的投胎愿望..."></textarea>
+                </div>
+            </div>
+        </div>
+        
+        <div class="questionnaire-controls">
+            <button class="btn btn-primary" id="submitQuestionnaire">完成档案</button>
+        </div>
+    </div>
+
+    <!-- 生灵岛界面 -->
+    <div class="living-island-container" id="livingIsland" style="display: none;">
+        <div class="island-header">
+            <h2>生灵岛</h2>
+            <div class="life-stats">
+                <div class="stat-item">
+                    <span class="stat-label">生命倒计时</span>
+                    <span class="stat-value" id="lifeCountdown">--天</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">当前时间</span>
+                    <span class="stat-value" id="currentTime">--:--</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="island-content">
+            <div class="location-grid">
+                <div class="location-card" data-location="memorial">
+                    <div class="location-icon">🏛️</div>
+                    <h4>墓志铭社区</h4>
+                    <p>海底的永恒记忆</p>
+                </div>
+                
+                <div class="location-card" data-location="timeMachine">
+                    <div class="location-icon">⏰</div>
+                    <h4>人生体验穿越机</h4>
+                    <p>体验不同的人生</p>
+                </div>
+                
+                <div class="location-card" data-location="myHouse">
+                    <div class="location-icon">🏠</div>
+                    <h4>我的小屋</h4>
+                    <p>记录生命日记</p>
+                </div>
+                
+                <div class="location-card" data-location="beach">
+                    <div class="location-icon">🏖️</div>
+                    <h4>海边</h4>
+                    <p>收集漂流瓶</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="island-controls">
+            <button class="btn btn-secondary" id="backToMenu">返回主菜单</button>
+        </div>
+    </div>
+
+    <!-- 幽灵岛界面 -->
+    <div class="ghost-island-container" id="ghostIsland" style="display: none;">
+        <div class="island-header">
+            <h2>幽灵岛</h2>
+            <div class="ghost-stats">
+                <div class="stat-item">
+                    <span class="stat-label">幽灵指数</span>
+                    <span class="stat-value" id="ghostIndex">--</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">当前层级</span>
+                    <span class="stat-value" id="currentLevel">第1层</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="hell-levels">
+            <div class="level-card" data-level="1">
+                <div class="level-number">1</div>
+                <div class="level-name">拔舌地狱</div>
+            </div>
+            <div class="level-card" data-level="2">
+                <div class="level-number">2</div>
+                <div class="level-name">剪刀地狱</div>
+            </div>
+            <div class="level-card" data-level="3">
+                <div class="level-number">3</div>
+                <div class="level-name">铁树地狱</div>
+            </div>
+            <!-- 更多层级... -->
+        </div>
+        
+        <div class="island-controls">
+            <button class="btn btn-secondary" id="backToMenuGhost">返回主菜单</button>
+        </div>
+    </div>
+
+    <!-- 怪趣岛界面 -->
+    <div class="creature-island-container" id="creatureIsland" style="display: none;">
+        <div class="island-header">
+            <h2>怪趣岛</h2>
+            <div class="creature-stats">
+                <div class="stat-item">
+                    <span class="stat-label">当前形态</span>
+                    <span class="stat-value" id="currentForm">--</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">投胎票数</span>
+                    <span class="stat-value" id="reincarnationVotes">--</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="creature-content">
+            <div class="creature-display">
+                <div class="creature-sprite" id="creatureSprite">🐾</div>
+                <div class="creature-info">
+                    <h3 id="creatureName">未知生物</h3>
+                    <p id="creatureDescription">等待投胎中...</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="island-controls">
+            <button class="btn btn-secondary" id="backToMenuCreature">返回主菜单</button>
+        </div>
+    </div>
+    
+    <script src="js/game.js"></script>
+</body>
+</html>
