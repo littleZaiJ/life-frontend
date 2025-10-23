@@ -635,6 +635,1191 @@ body {
     color: #ff6b6b;
 }
 
+/* 游戏模态框样式 */
+.game-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.game-modal .modal-content {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 900px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.game-modal .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.game-modal .modal-header h3 {
+    color: #ffd700;
+    font-size: 1.8em;
+}
+
+/* 生命模拟器游戏样式 */
+.life-simulator {
+    text-align: center;
+}
+
+.life-scenario {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 25px;
+    margin: 20px 0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.life-choices {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.choice-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    padding: 15px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+}
+
+.choice-btn:hover {
+    background: rgba(78, 205, 196, 0.2);
+    border-color: #4ecdc4;
+    transform: translateY(-2px);
+}
+
+.choice-btn.selected {
+    background: linear-gradient(45deg, #4ecdc4, #44a08d);
+    border-color: #4ecdc4;
+}
+
+.life-consequence {
+    background: rgba(255, 107, 107, 0.1);
+    border: 1px solid rgba(255, 107, 107, 0.3);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    color: #fff;
+}
+
+/* 记忆拼图游戏样式 */
+.memory-puzzle {
+    text-align: center;
+}
+
+.puzzle-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+.puzzle-piece {
+    aspect-ratio: 1;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+}
+
+.puzzle-piece:hover {
+    background: rgba(78, 205, 196, 0.2);
+    border-color: #4ecdc4;
+}
+
+.puzzle-piece.matched {
+    background: linear-gradient(45deg, #4ecdc4, #44a08d);
+    border-color: #4ecdc4;
+    cursor: default;
+}
+
+.puzzle-timer {
+    font-size: 1.5em;
+    color: #ffd700;
+    margin: 20px 0;
+}
+
+/* 时间管理挑战样式 */
+.time-challenge {
+    text-align: center;
+}
+
+.challenge-tasks {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.task-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.task-card.completed {
+    background: rgba(78, 205, 196, 0.2);
+    border-color: #4ecdc4;
+}
+
+.task-priority {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.8em;
+    margin-bottom: 10px;
+}
+
+.priority-high {
+    background: rgba(255, 107, 107, 0.3);
+    color: #ff6b6b;
+}
+
+.priority-medium {
+    background: rgba(255, 165, 2, 0.3);
+    color: #ffa502;
+}
+
+.priority-low {
+    background: rgba(78, 205, 196, 0.3);
+    color: #4ecdc4;
+}
+
+/* 地狱逃脱游戏样式 */
+.hell-escape {
+    text-align: center;
+}
+
+.escape-maze {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 2px;
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+.maze-cell {
+    aspect-ratio: 1;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.maze-cell.wall {
+    background: rgba(255, 107, 107, 0.5);
+    cursor: not-allowed;
+}
+
+.maze-cell.player {
+    background: linear-gradient(45deg, #4ecdc4, #44a08d);
+    animation: pulse 1s infinite;
+}
+
+.maze-cell.exit {
+    background: linear-gradient(45deg, #ffd700, #ffed4e);
+    animation: shimmer 2s infinite;
+}
+
+.maze-cell.path {
+    background: rgba(78, 205, 196, 0.3);
+}
+
+/* 灵魂收集游戏样式 */
+.soul-collection {
+    text-align: center;
+}
+
+.soul-field {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    border-radius: 15px;
+    margin: 20px 0;
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.soul {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, #ffd700, #ffed4e);
+    border-radius: 50%;
+    cursor: pointer;
+    animation: float 2s ease-in-out infinite;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.soul.collected {
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.3s ease;
+}
+
+.soul-score {
+    font-size: 1.5em;
+    color: #ffd700;
+    margin: 20px 0;
+}
+
+/* 投胎模拟器样式 */
+.reincarnation-simulator {
+    text-align: center;
+}
+
+.reincarnation-wheel {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: conic-gradient(
+        #ff6b6b 0deg 45deg,
+        #4ecdc4 45deg 90deg,
+        #45b7d1 90deg 135deg,
+        #96ceb4 135deg 180deg,
+        #feca57 180deg 225deg,
+        #ff9ff3 225deg 270deg,
+        #54a0ff 270deg 315deg,
+        #5f27cd 315deg 360deg
+    );
+    margin: 20px auto;
+    position: relative;
+    cursor: pointer;
+    transition: transform 3s ease-out;
+}
+
+.reincarnation-wheel::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.reincarnation-wheel::after {
+    content: '🎯';
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2em;
+    z-index: 3;
+}
+
+.creature-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.creature-option {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.creature-option:hover {
+    background: rgba(78, 205, 196, 0.2);
+    border-color: #4ecdc4;
+    transform: translateY(-2px);
+}
+
+.creature-option.selected {
+    background: linear-gradient(45deg, #4ecdc4, #44a08d);
+    border-color: #4ecdc4;
+}
+
+/* 生物进化游戏样式 */
+.evolution-game {
+    text-align: center;
+}
+
+.evolution-tree {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin: 20px 0;
+}
+
+.evolution-stage {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.evolution-creature {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    min-width: 120px;
+}
+
+.evolution-creature.unlocked {
+    background: rgba(78, 205, 196, 0.2);
+    border-color: #4ecdc4;
+}
+
+.evolution-creature.current {
+    background: linear-gradient(45deg, #4ecdc4, #44a08d);
+    border-color: #4ecdc4;
+    animation: pulse 2s infinite;
+}
+
+.evolution-arrow {
+    font-size: 2em;
+    color: #4ecdc4;
+}
+
+/* 生存挑战游戏样式 */
+.survival-challenge {
+    text-align: center;
+}
+
+.survival-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.stat-bar {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+}
+
+.stat-bar h4 {
+    color: #ffd700;
+    margin-bottom: 10px;
+}
+
+.stat-progress {
+    width: 100%;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.stat-fill {
+    height: 100%;
+    background: linear-gradient(45deg, #4ecdc4, #44a08d);
+    transition: width 0.3s ease;
+}
+
+.survival-actions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.action-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    padding: 15px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.action-btn:hover {
+    background: rgba(78, 205, 196, 0.2);
+    border-color: #4ecdc4;
+    transform: translateY(-2px);
+}
+
+.action-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* 超度挑战样式 */
+.redemption-challenge {
+    text-align: center;
+}
+
+.redemption-actions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.action-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.action-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.action-card h4 {
+    color: #ffd700;
+    margin-bottom: 10px;
+}
+
+.redemption-progress {
+    margin: 30px 0;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(45deg, #4ecdc4, #44a08d);
+    transition: width 0.3s ease;
+}
+
+/* 投胎模拟器样式 */
+.reincarnation-simulator {
+    text-align: center;
+}
+
+.reincarnation-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+.reincarnation-tabs .tab-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.reincarnation-tabs .tab-btn.active {
+    background: linear-gradient(45deg, #4ecdc4, #44a08d);
+    border-color: #4ecdc4;
+}
+
+.reincarnation-tabs .tab-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.reincarnation-info {
+    margin-bottom: 30px;
+}
+
+.reincarnation-info p {
+    margin: 10px 0;
+    font-size: 1.1em;
+}
+
+.reincarnation-type-selector {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.type-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.type-btn.active {
+    background: linear-gradient(45deg, #4ecdc4, #44a08d);
+    border-color: #4ecdc4;
+}
+
+.type-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.reincarnation-wheel {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: conic-gradient(
+        #ff6b6b 0deg 45deg,
+        #4ecdc4 45deg 90deg,
+        #45b7d1 90deg 135deg,
+        #96ceb4 135deg 180deg,
+        #feca57 180deg 225deg,
+        #ff9ff3 225deg 270deg,
+        #54a0ff 270deg 315deg,
+        #5f27cd 315deg 360deg
+    );
+    margin: 20px auto;
+    position: relative;
+    cursor: pointer;
+    transition: transform 3s ease-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wheel-pointer {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2em;
+    z-index: 3;
+}
+
+.reincarnation-result {
+    margin: 30px 0;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.reincarnation-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.reincarnation-card.human {
+    border-left: 4px solid #4ecdc4;
+}
+
+.reincarnation-card.animal {
+    border-left: 4px solid #ff6b6b;
+}
+
+.reincarnation-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.reincarnation-emoji {
+    font-size: 3em;
+}
+
+.reincarnation-title h3 {
+    color: #ffd700;
+    font-size: 1.5em;
+    margin-bottom: 5px;
+}
+
+.reincarnation-title .location {
+    color: #4ecdc4;
+    font-size: 1em;
+}
+
+.reincarnation-description {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    border-left: 3px solid #ffd700;
+}
+
+.reincarnation-attributes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.advantages, .challenges {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.advantages h4 {
+    color: #4ecdc4;
+    margin-bottom: 10px;
+}
+
+.challenges h4 {
+    color: #ff6b6b;
+    margin-bottom: 10px;
+}
+
+.advantages ul, .challenges ul {
+    list-style: none;
+    padding: 0;
+}
+
+.advantages li, .challenges li {
+    padding: 5px 0;
+    font-size: 0.9em;
+}
+
+/* 世界地图样式 */
+.world-map {
+    text-align: center;
+}
+
+.map-container {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    border-radius: 15px;
+    margin: 20px 0;
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.map-regions {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.region {
+    position: absolute;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.region:hover {
+    transform: scale(1.1);
+}
+
+.region-marker {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    margin: 0 auto 5px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.region-marker.human {
+    background: rgba(78, 205, 196, 0.3);
+    border-color: #4ecdc4;
+}
+
+.region-marker.animal {
+    background: rgba(255, 107, 107, 0.3);
+    border-color: #ff6b6b;
+}
+
+.region:hover .region-marker {
+    transform: scale(1.2);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+.region-name {
+    font-size: 0.8em;
+    color: #fff;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 2px 6px;
+    border-radius: 10px;
+    margin-top: 5px;
+}
+
+.region.current-location {
+    animation: pulse 2s infinite;
+}
+
+.map-legend {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 20px 0;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.legend-color {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.legend-color.human {
+    background: rgba(78, 205, 196, 0.3);
+    border-color: #4ecdc4;
+}
+
+.legend-color.animal {
+    background: rgba(255, 107, 107, 0.3);
+    border-color: #ff6b6b;
+}
+
+/* 社交面板样式 */
+.social-panel {
+    text-align: center;
+}
+
+.nearby-players {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.player-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.3s ease;
+}
+
+.player-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.player-avatar {
+    font-size: 2em;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+}
+
+.player-info {
+    flex: 1;
+    text-align: left;
+}
+
+.player-info h4 {
+    color: #ffd700;
+    margin-bottom: 5px;
+}
+
+.player-info p {
+    margin: 2px 0;
+    font-size: 0.9em;
+    opacity: 0.8;
+}
+
+.player-info .location {
+    color: #4ecdc4;
+}
+
+.chat-btn {
+    background: linear-gradient(45deg, #4ecdc4, #44a08d);
+    border: none;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: all 0.3s ease;
+}
+
+.chat-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(78, 205, 196, 0.3);
+}
+
+.chat-panel {
+    margin-top: 30px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.chat-messages {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 15px;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.message {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.message.own {
+    align-items: flex-end;
+}
+
+.message.other {
+    align-items: flex-start;
+}
+
+.message.system {
+    align-items: center;
+}
+
+.message-content {
+    max-width: 70%;
+    padding: 10px 15px;
+    border-radius: 15px;
+    position: relative;
+}
+
+.message.own .message-content {
+    background: linear-gradient(45deg, #4ecdc4, #44a08d);
+    color: white;
+}
+
+.message.other .message-content {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.message.system .message-content {
+    background: rgba(255, 215, 0, 0.2);
+    color: #ffd700;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.message-time {
+    font-size: 0.7em;
+    opacity: 0.6;
+    margin-top: 5px;
+}
+
+.chat-input {
+    display: flex;
+    gap: 10px;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 10px 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 1em;
+}
+
+.chat-input input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chat-input button {
+    background: linear-gradient(45deg, #4ecdc4, #44a08d);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.chat-input button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(78, 205, 196, 0.3);
+}
+
+.creature-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.creature-option {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.creature-option:hover {
+    background: rgba(78, 205, 196, 0.2);
+    border-color: #4ecdc4;
+    transform: translateY(-2px);
+}
+
+.creature-option .creature-emoji {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.creature-option h4 {
+    color: #ffd700;
+    margin-bottom: 5px;
+}
+
+/* 生物进化游戏样式 */
+.evolution-game {
+    text-align: center;
+}
+
+.evolution-info {
+    margin-bottom: 30px;
+}
+
+.evolution-info p {
+    margin: 10px 0;
+    font-size: 1.1em;
+}
+
+.evolution-tree {
+    margin: 30px 0;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.evolution-stage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.evolution-creature {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    min-width: 120px;
+    margin: 10px 0;
+}
+
+.evolution-creature.unlocked {
+    background: rgba(78, 205, 196, 0.2);
+    border-color: #4ecdc4;
+}
+
+.evolution-creature.current {
+    background: linear-gradient(45deg, #4ecdc4, #44a08d);
+    border-color: #4ecdc4;
+    animation: pulse 2s infinite;
+}
+
+.evolution-creature .creature-emoji {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.evolution-creature h4 {
+    color: #ffd700;
+    margin-bottom: 5px;
+}
+
+.evolution-arrow {
+    font-size: 2em;
+    color: #4ecdc4;
+    margin: 10px 0;
+}
+
+.evolution-challenges {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.challenge-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.challenge-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.challenge-card h4 {
+    color: #ffd700;
+    margin-bottom: 10px;
+}
+
+/* 生存挑战游戏样式 */
+.survival-challenge {
+    text-align: center;
+}
+
+.survival-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.survival-actions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.survival-log {
+    max-height: 200px;
+    overflow-y: auto;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 15px;
+    margin: 20px 0;
+    text-align: left;
+}
+
+.log-entry {
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9em;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.log-entry:last-child {
+    border-bottom: none;
+}
+
+/* 游戏说明样式 */
+.game-instructions {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: 4px solid #ffd700;
+}
+
+.game-instructions h4 {
+    color: #ffd700;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+
+.game-instructions p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.game-instructions ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.game-instructions li {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95em;
+}
+
+.game-instructions li:last-child {
+    border-bottom: none;
+}
+
+.game-instructions li:before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: #4ecdc4;
+    border-radius: 50%;
+    margin-right: 10px;
+    margin-top: 6px;
+    vertical-align: top;
+}
+
 /* 响应式设计 */
 @media (max-width: 768px) {
     .game-container,
@@ -707,5 +1892,27 @@ body {
     
     .memorial-actions {
         justify-content: center;
+    }
+    
+    .puzzle-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .escape-maze {
+        grid-template-columns: repeat(6, 1fr);
+    }
+    
+    .reincarnation-wheel {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .evolution-stage {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .evolution-arrow {
+        transform: rotate(90deg);
     }
 }
