@@ -1,0 +1,103 @@
+<!--pages/intro/intro.wxml-->
+<view class="intro-screen {{themeClass}} {{isActive ? 'active' : ''}} {{isExiting ? 'intro-exit' : ''}}">
+  <view class="intro-bg-layer"></view>
+  <view class="intro-glow-layer"></view>
+  <view class="intro-vignette"></view>
+  
+  <!-- 视差浮动图标 -->
+  <view class="intro-parallax">
+    <text class="p-item p1">🏝️</text>
+    <text class="p-item p2">👻</text>
+    <text class="p-item p3">🐾</text>
+    <text class="p-item p4">⛩️</text>
+    <text class="p-item p5">☯️</text>
+  </view>
+
+  <view class="intro-content">
+    <view class="intro-logo">
+      生命日记
+      <view class="intro-flare"></view>
+    </view>
+
+    <!-- 电影级场景动画 -->
+    <view class="intro-scene">
+      <!-- 因果轮回场景 -->
+      <view class="scene scene-karma {{currentSlide === 0 ? 'active' : ''}}">
+        <view class="rings">
+          <view class="ring r1"></view>
+          <view class="ring r2"></view>
+          <view class="ring r3"></view>
+        </view>
+        <view class="orbit">
+          <view class="orb o1"></view>
+          <view class="orb o2"></view>
+          <view class="orb o3"></view>
+        </view>
+      </view>
+
+      <!-- 生灵岛场景 -->
+      <view class="scene scene-living {{currentSlide === 1 ? 'active' : ''}}">
+        <view class="timeline">
+          <text class="t-dot t1">👶</text>
+          <text class="t-dot t2">🏫</text>
+          <text class="t-dot t3">💼</text>
+          <text class="t-dot t4">👨‍👩‍👧‍👦</text>
+          <text class="t-dot t5">🪦</text>
+          <view class="t-bar"></view>
+          <view class="t-playhead"></view>
+        </view>
+      </view>
+
+      <!-- 幽灵岛场景 -->
+      <view class="scene scene-ghost {{currentSlide === 2 ? 'active' : ''}}">
+        <view class="path path-up">
+          <view class="spark s1"></view>
+          <view class="spark s2"></view>
+          <text class="gate gate-heaven">✧</text>
+        </view>
+        <view class="path path-down">
+          <view class="ember e1"></view>
+          <view class="ember e2"></view>
+          <text class="gate gate-hell">卍</text>
+        </view>
+      </view>
+
+      <!-- 怪趣岛场景 -->
+      <view class="scene scene-creature {{currentSlide === 3 ? 'active' : ''}}">
+        <view class="egg">
+          <view class="crack c1"></view>
+          <view class="crack c2"></view>
+          <view class="pulse"></view>
+        </view>
+        <view class="burst">
+          <view class="particle p1"></view>
+          <view class="particle p2"></view>
+          <view class="particle p3"></view>
+          <view class="particle p4"></view>
+        </view>
+      </view>
+    </view>
+
+    <view class="intro-slides">
+      <text class="intro-title {{titleAnimate ? 'intro-title-animate' : ''}}">{{currentSlideData.title}}</text>
+      <text class="intro-description {{descAnimate ? 'intro-description-animate' : ''}}">{{displayedText}}</text>
+    </view>
+
+    <view class="intro-progress">
+      <view wx:for="{{introSlides}}" wx:key="index" class="intro-dot {{index === currentSlide ? 'active' : ''}}" data-index="{{index}}"></view>
+    </view>
+
+    <view class="intro-actions">
+      <button class="btn btn-primary" bindtap="handleNext">{{currentSlide === introSlides.length - 1 ? '开启投胎仪式' : '继续探索'}}</button>
+      <button class="btn btn-secondary" bindtap="handleSkip">跳过动画</button>
+    </view>
+  </view>
+
+  <!-- 底部波浪 -->
+  <view class="intro-waves">
+    <view class="wave w1"></view>
+    <view class="wave w2"></view>
+    <view class="wave w3"></view>
+  </view>
+</view>
+

@@ -1,0 +1,55 @@
+{
+  "pages": [
+    "pages/intro/intro",
+    "pages/reincarnation/reincarnation",
+    "pages/living-island/living-island",
+    "pages/ghost-island/ghost-island",
+    "pages/creature-island/creature-island",
+    "pages/games/life-simulator/life-simulator",
+    "pages/games/memory-puzzle/memory-puzzle",
+    "pages/games/time-challenge/time-challenge",
+    "pages/games/hell-escape/hell-escape",
+    "pages/games/soul-collection/soul-collection",
+    "pages/games/redemption-challenge/redemption-challenge",
+    "pages/games/evolution-game/evolution-game",
+    "pages/games/survival-challenge/survival-challenge"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#1e3c72",
+    "navigationBarTitleText": "生命日记",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#1e3c72",
+    "enablePullDownRefresh": false
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#4ecdc4",
+    "backgroundColor": "#1a1a2e",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/living-island/living-island",
+        "text": "生灵岛",
+        "iconPath": "images/living.png",
+        "selectedIconPath": "images/living-active.png"
+      },
+      {
+        "pagePath": "pages/ghost-island/ghost-island",
+        "text": "幽灵岛",
+        "iconPath": "images/ghost.png",
+        "selectedIconPath": "images/ghost-active.png"
+      },
+      {
+        "pagePath": "pages/creature-island/creature-island",
+        "text": "怪趣岛",
+        "iconPath": "images/creature.png",
+        "selectedIconPath": "images/creature-active.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}
+

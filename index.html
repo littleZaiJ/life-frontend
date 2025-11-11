@@ -8,6 +8,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- 背景动画粒子 -->
+    <div class="particles" id="particles"></div>
+    
     <!-- 游戏主界面 -->
     <div class="game-container" id="mainMenu">
         <div class="game-header">
@@ -41,6 +44,94 @@
         <div class="game-controls">
             <button class="btn btn-primary" id="startGameBtn">开始生命之旅</button>
             <button class="btn btn-secondary" id="loadGameBtn">继续游戏</button>
+        </div>
+    </div>
+
+    <!-- 开场介绍 -->
+    <div class="intro-screen" id="introScreen">
+        <div class="intro-bg-layer"></div>
+        <div class="intro-glow-layer"></div>
+        <div class="intro-vignette"></div>
+        <div class="intro-parallax" aria-hidden="true">
+            <span class="p-item p1">🏝️</span>
+            <span class="p-item p2">👻</span>
+            <span class="p-item p3">🐾</span>
+            <span class="p-item p4">⛩️</span>
+            <span class="p-item p5">☯️</span>
+        </div>
+        <div class="intro-content">
+            <div class="intro-logo">
+                生命日记
+                <span class="intro-flare"></span>
+            </div>
+            <div class="intro-scene" id="introScene" aria-hidden="true">
+                <!-- 因果轮回：同心环与轨道粒子 -->
+                <div class="scene scene-karma">
+                    <div class="rings">
+                        <span class="ring r1"></span>
+                        <span class="ring r2"></span>
+                        <span class="ring r3"></span>
+                    </div>
+                    <div class="orbit">
+                        <span class="orb o1"></span>
+                        <span class="orb o2"></span>
+                        <span class="orb o3"></span>
+                    </div>
+                </div>
+                <!-- 生灵岛：出生-成长-事业-衰老-死亡 时间轴放映 -->
+                <div class="scene scene-living">
+                    <div class="timeline">
+                        <span class="t-dot t1">👶</span>
+                        <span class="t-dot t2">🏫</span>
+                        <span class="t-dot t3">💼</span>
+                        <span class="t-dot t4">👨‍👩‍👧‍👦</span>
+                        <span class="t-dot t5">🪦</span>
+                        <span class="t-bar"></span>
+                        <span class="t-playhead"></span>
+                    </div>
+                </div>
+                <!-- 幽灵岛：通往地狱或天堂的分岔与流光 -->
+                <div class="scene scene-ghost">
+                    <div class="path path-up">
+                        <span class="spark s1"></span>
+                        <span class="spark s2"></span>
+                        <span class="gate gate-heaven">✧</span>
+                    </div>
+                    <div class="path path-down">
+                        <span class="ember e1"></span>
+                        <span class="ember e2"></span>
+                        <span class="gate gate-hell">卍</span>
+                    </div>
+                </div>
+                <!-- 怪趣岛：生命之卵孵化与光爆 -->
+                <div class="scene scene-creature">
+                    <div class="egg">
+                        <span class="crack c1"></span>
+                        <span class="crack c2"></span>
+                        <span class="pulse"></span>
+                    </div>
+                    <div class="burst">
+                        <span class="particle p1"></span>
+                        <span class="particle p2"></span>
+                        <span class="particle p3"></span>
+                        <span class="particle p4"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="intro-slides">
+                <h2 class="intro-title" id="introTitle"></h2>
+                <p class="intro-description" id="introDescription"></p>
+            </div>
+            <div class="intro-progress" id="introProgress"></div>
+            <div class="intro-actions">
+                <button class="btn btn-primary" id="introNextBtn">继续探索</button>
+                <button class="btn btn-secondary" id="introSkipBtn">跳过动画</button>
+            </div>
+        </div>
+        <div class="intro-waves" aria-hidden="true">
+            <span class="wave w1"></span>
+            <span class="wave w2"></span>
+            <span class="wave w3"></span>
         </div>
     </div>
 
@@ -327,6 +418,6 @@
         </div>
     </div>
     
-    <script src="js/game.js"></script>
+    <script type="module" src="js/main.js"></script>
 </body>
 </html>

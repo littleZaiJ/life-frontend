@@ -1,0 +1,189 @@
+/**app.wxss**/
+page {
+  font-family: 'PingFang SC', 'Helvetica Neue', Helvetica, 'Microsoft YaHei', sans-serif;
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #1e3c72 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  min-height: 100vh;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* 通用按钮样式 */
+.btn {
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  padding: 30rpx 70rpx;
+  font-size: 32rpx;
+  border-radius: 100rpx;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 16rpx 50rpx rgba(0, 0, 0, 0.2);
+  margin: 0 30rpx;
+  font-weight: 500;
+}
+
+.btn-primary {
+  background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+}
+
+.btn-secondary {
+  background: linear-gradient(45deg, #4ecdc4, #44a08d);
+}
+
+.btn-highlight {
+  background: linear-gradient(45deg, #ff9f43, #ff6b6b);
+  color: #fff;
+  box-shadow: 0 16rpx 50rpx rgba(255, 159, 67, 0.25);
+}
+
+/* 通用卡片样式 */
+.card {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 40rpx;
+  padding: 40rpx;
+  margin: 20rpx;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 30rpx 70rpx rgba(0, 0, 0, 0.3);
+}
+
+/* 通用模态框样式 */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(40rpx);
+  border-radius: 40rpx;
+  padding: 60rpx;
+  max-width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40rpx;
+  padding-bottom: 30rpx;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-header h3 {
+  color: #ffd700;
+  font-size: 36rpx;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 40rpx;
+  padding: 0;
+  width: 60rpx;
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 游戏说明样式 */
+.game-instructions {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 30rpx;
+  padding: 40rpx;
+  margin-bottom: 40rpx;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: 8rpx solid #ffd700;
+}
+
+.game-instructions h4 {
+  color: #ffd700;
+  margin-bottom: 30rpx;
+  font-size: 32rpx;
+}
+
+.game-instructions p {
+  margin-bottom: 30rpx;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 28rpx;
+}
+
+.game-instructions ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.game-instructions li {
+  padding: 16rpx 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 26rpx;
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(40rpx);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20rpx);
+  }
+}
+
+@keyframes shimmer {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+

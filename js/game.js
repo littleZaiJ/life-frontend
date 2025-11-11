@@ -1,4 +1,4 @@
-class LifeDiaryGame {
+export default class LifeDiaryGame {
     constructor() {
         this.gameState = {
             currentIsland: 'menu',
@@ -26,6 +26,8 @@ class LifeDiaryGame {
                 survivalChallenge: 0
             }
         };
+        
+        this.isIntroReincarnation = false;
         
         this.hellLevels = [
             '拔舌地狱', '剪刀地狱', '铁树地狱', '孽镜地狱', '蒸笼地狱', '铜柱地狱',
@@ -532,11 +534,11 @@ class LifeDiaryGame {
                 break;
             case 'ghost':
                 // 开发模式：直接进入幽灵岛
-                this.enterGhostIsland();
+                    this.enterGhostIsland();
                 break;
             case 'creature':
                 // 开发模式：直接进入怪趣岛
-                this.enterCreatureIsland();
+                    this.enterCreatureIsland();
                 break;
         }
     }
@@ -692,14 +694,14 @@ class LifeDiaryGame {
     
     updateIslandStatus() {
         // 开发模式：所有岛都显示为已解锁
-        this.livingStatus.textContent = '已解锁';
-        this.livingStatus.classList.add('unlocked');
+            this.livingStatus.textContent = '已解锁';
+            this.livingStatus.classList.add('unlocked');
         
-        this.ghostStatus.textContent = '已解锁';
-        this.ghostStatus.classList.add('unlocked');
+            this.ghostStatus.textContent = '已解锁';
+            this.ghostStatus.classList.add('unlocked');
         
-        this.creatureStatus.textContent = '已解锁';
-        this.creatureStatus.classList.add('unlocked');
+            this.creatureStatus.textContent = '已解锁';
+            this.creatureStatus.classList.add('unlocked');
     }
     
     loadGame() {
@@ -1714,7 +1716,7 @@ class LifeDiaryGame {
             <div class="modal-content">
                 <div class="modal-header">
                     <h3>投胎模拟器</h3>
-                    <button class="close-btn" onclick="this.closest('.game-modal').remove()">&times;</button>
+                    <button class="close-btn" onclick="${closeAction}">&times;</button>
                 </div>
                 <div class="modal-body">
                     <div class="reincarnation-simulator">
@@ -1751,8 +1753,11 @@ class LifeDiaryGame {
                             <div class="reincarnation-result" id="reincarnationResult" style="display: none;">
                                 <h4>投胎结果</h4>
                                 <div class="reincarnation-details" id="reincarnationDetails"></div>
-                                <button class="btn btn-primary" onclick="game.spinReincarnationWheel()">再次投胎</button>
-                                <button class="btn btn-secondary" onclick="game.goToMap()">前往地图</button>
+                                <div class="reincarnation-actions">
+                                    <button class="btn btn-primary" onclick="game.spinReincarnationWheel()">再次投胎</button>
+                                    <button class="btn btn-secondary" onclick="game.goToMap()">前往地图</button>
+                                    <button class="btn btn-highlight" id="startLifeJourneyBtn" style="display: none;" onclick="game.completeReincarnationIntro()">开启生命旅程</button>
+                                </div>
                             </div>
                         </div>
                         
@@ -1960,6 +1965,11 @@ class LifeDiaryGame {
                     </div>
                 </div>
             `;
+        }
+
+        const startJourneyBtn = document.getElementById('startLifeJourneyBtn');
+        if (startJourneyBtn) {
+            startJourneyBtn.style.display = this.isIntroReincarnation ? 'inline-flex' : 'none';
         }
     }
     
@@ -2513,20 +2523,27 @@ class LifeDiaryGame {
     showCreatureCollection() {
         alert('生物图鉴功能开发中...');
     }
+
+    startReincarnationPrelude() {
+        if (this.isIntroReincarnation) return;
+        this.isIntroReincarnation = true;
+        this.showReincarnationSimulator();
+    }
+
+    completeReincarnationIntro() {
+        this.isIntroReincarnation = false;
+        const modal = document.querySelector('.game-modal');
+        if (modal) {
+            modal.remove();
+        }
+        this.enterLivingIsland();
+    }
 }
 
-// 页面加载完成后初始化游戏
-document.addEventListener('DOMContentLoaded', () => {
-    window.game = new LifeDiaryGame();
-});
-
-// 添加键盘快捷键支持
-document.addEventListener('keydown', (e) => {
-    if (e.code === 'Escape') {
-        // ESC键返回主菜单
-        const game = window.lifeDiaryGame;
-        if (game && game.gameState.currentIsland !== 'menu') {
-            game.showMainMenu();
+export function registerGlobalShortcuts(gameInstance) {
+    document.addEventListener('keydown', (e) => {
+        if (e.code === 'Escape' && gameInstance && gameInstance.gameState.currentIsland !== 'menu') {
+            gameInstance.showMainMenu();
         }
-    }
-});
+    });
+}
